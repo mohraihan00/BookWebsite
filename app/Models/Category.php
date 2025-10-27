@@ -6,5 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    //
+    protected $fillable = [
+        'name',
+        'slug',
+        'description',
+    ];
+
+    /**
+     * Get the books for the category.
+     */
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
 }
